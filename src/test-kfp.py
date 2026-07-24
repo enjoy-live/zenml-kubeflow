@@ -1,0 +1,14 @@
+# 该代码在跳板机上可以正常执行
+import kfp
+
+HOST = "http://172.16.1.72:30080/pipeline"
+TOKEN = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQteE5fSS1Rb1d6TzhRYlo5QWZlbnVSbm5mM3ZfUGx3eU1uN0Q3ZHI5c00ifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlZmxvdy11c2VyLWV4YW1wbGUtY29tIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtZWRpdG9yLXRva2VuIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImRlZmF1bHQtZWRpdG9yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiMmJhM2ZjMTEtNTk0ZC00MTQzLThlMmQtOTA3ZDE4NzExYjU2Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmVmbG93LXVzZXItZXhhbXBsZS1jb206ZGVmYXVsdC1lZGl0b3IifQ.NlExtE0ddrIlc4LIaV0i-VQGWJHctwfp2zibDpNdemFsihb3rpQCOiMW1vzIBTkntlFc5AF5zuQ_tYCsT3vqHiz7HRegxdHXW5D65pFoDY7t-7Nimp6kSqFkVIhNXweNcHETGpnUx8KuVjktSTU3cRmI3Krd_nvH1FGl3xRuh0VA76cWafm1pQNfotcjWFX31ujUVhSXyx1V0J-PZVfO0ZQaqz-4h-T6z1PkN9T4fwVEd7QXrDREJFR4NcqR-eP9ov-aoaSaSQOuiAkNAv1C7S3UC5zaAYEGoHrlAejj-_jdlsMmiILMQyCzPWwxXfX4ihdvqp_p51Fci7GsFgQ7mw"
+NAMESPACE = "kubeflow-user-example-com"
+
+
+try:
+    client = kfp.Client(host=HOST, existing_token=TOKEN, namespace=NAMESPACE)
+    experiments = client.list_experiments()
+    print("✅ Kubeflow 连接成功！实验列表：", experiments)
+except Exception as e:
+    print("❌ Kubeflow 连接失败：", e)

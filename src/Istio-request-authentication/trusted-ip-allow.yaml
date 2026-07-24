@@ -1,0 +1,15 @@
+# 该策略生产环境已经移除，留作参考。
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-trusted-ip
+  namespace: kubeflow
+spec:
+  selector:
+    matchLabels:
+      app: ml-pipeline
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        ipBlocks: ["12.12.12.0/24"]

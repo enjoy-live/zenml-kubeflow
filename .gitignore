@@ -1,0 +1,67 @@
+# ==========================================
+# 1. Python 虚拟环境 & 包管理 (必需)
+# ==========================================
+.venv/
+ENV/
+env/
+.venv*/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# 2. Python 运行时缓存 & 字节码
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# 3. ZenML 运行时与本地 Store 缓存
+# ==========================================
+# ZenML 本地运行产生的 artifact、stack 数据和日志
+.zen/
+*.zenml
+
+# ==========================================
+# 4. 编辑器与 IDE 配置 (VSCode / PyCharm)
+# ==========================================
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+
+# macOS 系统临时文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# ==========================================
+# 5. 环境变量与敏感密钥 (Token / Password)
+# ==========================================
+.env
+.env.*
+*.pem
+*.key
